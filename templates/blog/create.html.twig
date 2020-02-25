@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+<h1> 
+{% if modificationMode %} 
+Modification of an article
+{% else %}
+Creation of a new article
+{% endif %}
+</h1>
+
+ {{ form_start(formArticle) }}
+
+<!-- form_row also manages the error messages -->
+ {{ form_row(formArticle.title, {'attr' : {'placeholder': "Title of the article"}})}}
+ {{ form_row(formArticle.content, {'attr' : {'placeholder': "Content of the article"}})}}
+ {{ form_row(formArticle.image, {'attr' : {'placeholder': "Image of the article"}})}}
+
+ <button type="submit" class="btn btn-success"> Save </button>
+
+{{ form_end(formArticle) }}
+
+{% endblock %}
